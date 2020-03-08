@@ -11,7 +11,7 @@
         <!--用户名-->
         <!--prop 指定验证规则-->
         <el-form-item prop="username">
-          <el-input prefix-icon="iconfont icon-yonghu-tianchong" v-model="loginForm.username"></el-input>
+          <el-input prefix-icon="iconfont icon-yonghu" v-model="loginForm.username"></el-input>
         </el-form-item>
         <!--密码-->
         <el-form-item prop="password">
@@ -72,7 +72,7 @@
           this.$message.success('登录成功');
           console.log(res);
           // 在sessionStorage中存储token
-          window.sessionStorage.setItem('Authorization',res.data.token);
+          window.sessionStorage.setItem('token',res.data.token);
           // 编程式导航定向到/home
           this.$router.push('/home')
         })

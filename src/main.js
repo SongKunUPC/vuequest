@@ -8,6 +8,12 @@ import './assets/font/iconfont.css'
 import axios from 'axios'
 
 axios.defaults.baseURL = 'http://localhost:8081/'
+// 设置axios请求拦截器,挂载Authorization请求头
+axios.interceptors.request.use(config => {
+  // console.log(config);
+  config.headers.Authorization = window.sessionStorage.getItem("token")
+  return config
+})
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 Vue.config.productionTip = false
